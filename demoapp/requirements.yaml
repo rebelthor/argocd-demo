@@ -1,4 +1,4 @@
 dependencies:
-- name: ghost
-  version: 6.7.4
+- name: kube-ops-view
+  version: 0.7.0
   repository: '@stable'
