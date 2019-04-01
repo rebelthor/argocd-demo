@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo-wordpress
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      valueFiles:
+      - values.yaml
+    path: demoapp
+    repoURL: https://github.com/rebelthor/argocd-demo.git
+    targetRevision: master
+    valuesFiles:
+    - values.yaml
+  syncPolicy:
+    automated:
+      prune: true
