@@ -1,4 +1,4 @@
 dependencies:
-- name: kube-ops-view
-  version: 0.7.0
+- name: weave-scope
+  version: 0.11.0
   repository: '@stable'
