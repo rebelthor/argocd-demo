@@ -17,6 +17,9 @@ kubectl create namespace argocd
 # Install ArgoCD
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
+# Check that ArgoCD is running as well as pod name
+kubectl get pods -n argocd
+
 # Open ArgoCD. Username admin, password is Argo server pod name
 kubectl port-forward svc/argocd-server 8080:80 -n argocd
 
