@@ -26,8 +26,11 @@ kubectl port-forward svc/argocd-server 8080:80 -n argocd
 # Open ArgoCD in the browser
 open http://localhost:8080
 
-# Apply our new application
-k apply -f argoapp.yaml -n argocd
+# Apply our new application (in a new terminal)
+export KUBECONFIG="$(kind get kubeconfig-path --name="kind")" && k apply -f argoapp.yaml -n argocd
+
+# Show new WeaveScope pods in default namespace
+kubectl get pods -n default
 
 # Port forward to the newly installed app
 k port-forward svc/demo-argocd-demo 9090:80 -n default 
